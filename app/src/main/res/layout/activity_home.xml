@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/_20sdp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitleStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:fontFamily="@font/air_bnb_cereal_bold"
+            android:text="@string/txt_status"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/_18ssp"
+            app:layout_constraintEnd_toStartOf="@+id/tvStatus"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:fontFamily="@font/air_bnb_cereal_bold"
+            android:textColor="@color/selector_grey_green_txt"
+            android:textSize="@dimen/_18ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/tvTitleStatus"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Not Charging" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:fontFamily="@font/air_bnb_cereal_medium"
+            android:textColor="@color/red"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleStatus"
+            tools:text="Alarm will ring " />
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBattery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/air_bnb_cereal_bold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_25ssp"
+            android:onClick="click"
+            app:layout_constraintBottom_toBottomOf="@+id/showBattery"
+            app:layout_constraintEnd_toEndOf="@+id/showBattery"
+            app:layout_constraintStart_toStartOf="@+id/showBattery"
+            app:layout_constraintTop_toTopOf="@+id/showBattery"
+            tools:text="100%" />
+
+        <com.timqi.sectorprogressview.ColorfulRingProgressView
+            android:id="@+id/showBattery"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_200sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:fgColorEnd="@color/light_blue"
+            app:fgColorStart="@color/blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvMessage"
+            app:percent="75"
+            app:startAngle="0"
+            app:strokeWidth="@dimen/_20sdp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivState"
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/selector_charging_state"
+            app:layout_constraintEnd_toEndOf="@+id/tvBattery"
+            app:layout_constraintStart_toStartOf="@+id/tvBattery"
+            app:layout_constraintTop_toBottomOf="@+id/tvBattery" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitleSelectBatteryPercentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/air_bnb_cereal_medium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/showBattery"
+            android:text="@string/txt_set_battery_percentage_for_getting_alarm" />
+
+
+        <com.shawnlin.numberpicker.NumberPicker
+            android:id="@+id/batteryPercentageSelector"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:elevation="1dp"
+            android:hapticFeedbackEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleSelectBatteryPercentage"
+            app:np_dividerColor="@color/blue"
+            app:np_fadingEdgeEnabled="false"
+            app:np_formatter="%01d"
+            app:np_height="50dp"
+            app:np_max="100"
+            app:np_min="50"
+            app:np_orientation="horizontal"
+            app:np_selectedTextColor="@color/blue"
+            app:np_selectedTextSize="@dimen/_22ssp"
+            app:np_textColor="@color/white"
+            app:np_textSize="@dimen/_18ssp"
+            app:np_value="0"
+            app:np_wheelItemCount="6"
+            app:np_width="150dp"
+            app:np_wrapSelectorWheel="false" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>

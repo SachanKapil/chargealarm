@@ -1,0 +1,80 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.chargealarm"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "api"
+    productFlavors {
+        development {
+        }
+        staging {
+        }
+        live {
+        }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // Shared Preference
+    implementation 'androidx.preference:preference:1.1.0'
+
+    // Material design
+    implementation 'com.google.android.material:material:1.1.0'
+
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+
+    //Recycler_View
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    // Progressbar
+    implementation 'com.wang.avi:library:2.1.3'
+
+    //Dimensions
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.14.1'
+
+    //charging
+    implementation 'com.timqi.sectorprogressview:library:2.0.1'
+
+    //NumberPicker
+    implementation 'com.shawnlin:number-picker:2.4.8'
+
+}

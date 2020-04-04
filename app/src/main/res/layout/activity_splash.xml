@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_power"
+        android:layout_marginBottom="@dimen/_150sdp"
+        android:fitsSystemWindows="true"
+        android:scaleType="centerCrop" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="@dimen/_60sdp"
+        android:fontFamily="@font/air_bnb_cereal_bold"
+        android:text="@string/title_charge_alarm"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_30sdp" />
+
+</FrameLayout>
