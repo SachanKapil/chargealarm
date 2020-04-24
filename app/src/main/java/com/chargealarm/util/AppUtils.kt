@@ -2,6 +2,7 @@ package com.chargealarm.util
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
 import android.graphics.*
@@ -196,6 +197,18 @@ object AppUtils {
         } else {
             vibrator.vibrate(200)
         }
+    }
+
+    fun isAppRunning(context: Context, packageName: String?): Boolean {
+        val activityManager: ActivityManager =
+            context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        val procInfos: List<ActivityManager.RunningAppProcessInfo> = activityManager.runningAppProcesses
+        for (processInfo in procInfos) {
+            if (processInfo.processName == packageName) {
+                return true
+            }
+        }
+        return false
     }
 
 }

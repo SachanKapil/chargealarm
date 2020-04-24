@@ -22,7 +22,6 @@ class HomeActivity : BaseActivity() {
     private var mService: ChargingService? = null
     private var mBound = false
     private var serviceIntent: Intent? = null
-    private lateinit var pcr: PowerConnectionReceiver
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +29,6 @@ class HomeActivity : BaseActivity() {
         setContentView(R.layout.activity_home)
 
         initListener()
-        setBroadcastReceiver()
         serviceIntent = Intent(this, ChargingService::class.java)
         ContextCompat.startForegroundService(this, serviceIntent as Intent)
     }
@@ -50,12 +48,6 @@ class HomeActivity : BaseActivity() {
             }
             mService?.setBatteryPercentageForAlarm(newVal)
         }
-    }
-
-    private fun setBroadcastReceiver() {
-        pcr = PowerConnectionReceiver()
-        val iFilter = IntentFilter(Intent.ACTION_BATTERY_CHANGED)
-        this.registerReceiver(pcr, iFilter)
     }
 
     override fun onStart() {
